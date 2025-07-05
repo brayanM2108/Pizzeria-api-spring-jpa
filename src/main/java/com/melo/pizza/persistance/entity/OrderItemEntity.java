@@ -1,9 +1,12 @@
 package com.melo.pizza.persistance.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "order_item")
@@ -25,14 +28,15 @@ public class OrderItemEntity {
     @Column(name = "id_pizza")
     private Integer idPizza;
 
-    @Column(nullable = false, columnDefinition = "DECIMAL(2,1)")
-    private Integer quantity;
+    @Column(nullable = false, precision = 2, scale = 1)
+    private BigDecimal quantity;
 
-    @Column(nullable = false, columnDefinition = "DECIMAL(5,2)")
-    private Double price;
+    @Column(nullable = false, precision = 5, scale = 2)
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "id_order", referencedColumnName = "id_order", insertable = false, updatable = false)
+    @JsonIgnore
     private OrderEntity order;
 
     @OneToOne

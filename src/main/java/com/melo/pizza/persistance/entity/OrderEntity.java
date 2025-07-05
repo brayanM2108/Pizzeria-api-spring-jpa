@@ -1,11 +1,13 @@
 package com.melo.pizza.persistance.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -27,20 +29,21 @@ public class OrderEntity {
     @Column(nullable = false, columnDefinition = "timestamp")
     private LocalDateTime date;
 
-    @Column(nullable = false, columnDefinition = "DECIMAL(6,2)")
-    private double total;
+    @Column(nullable = false, precision = 6, scale = 2)
+    private BigDecimal total;
 
-    @Column(nullable = false, columnDefinition ="CHAR(1)" )
-    private String method;
+    @Column(nullable = false )
+    private Character method;
 
     @Column(name = "additional_notes", length = 200)
     private String additionalNotes;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_customer", referencedColumnName = "id_customer", insertable = false, updatable = false)
+    @JsonIgnore
     private  CustomerEntity customer;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<OrderItemEntity > items;
 
 }
