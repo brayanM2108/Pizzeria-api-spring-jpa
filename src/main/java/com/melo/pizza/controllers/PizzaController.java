@@ -1,11 +1,11 @@
 package com.melo.pizza.controllers;
 
+import com.melo.pizza.persistance.dto.UpdatePizzaPriceDTO;
 import com.melo.pizza.persistance.entity.PizzaEntity;
 import com.melo.pizza.service.PizzaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -95,6 +95,15 @@ public class PizzaController {
             return ResponseEntity.internalServerError().build();
         }
 
+    }
+
+    @PutMapping("/price")
+    public ResponseEntity<Void> updatePrice(@RequestBody UpdatePizzaPriceDTO dto){
+        if (this.pizzaService.exist(dto.getPizzaId())) {
+            this.pizzaService.updatePrice(dto);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
     }
 
     @DeleteMapping("/{idPizza}")
