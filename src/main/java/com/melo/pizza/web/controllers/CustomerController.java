@@ -1,4 +1,4 @@
-package com.melo.pizza.controllers;
+package com.melo.pizza.web.controllers;
 
 import com.melo.pizza.persistance.entity.CustomerEntity;
 import com.melo.pizza.service.CustomerService;

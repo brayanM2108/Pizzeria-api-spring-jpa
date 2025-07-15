@@ -1,4 +1,4 @@
-package com.melo.pizza.controllers;
+package com.melo.pizza.web.controllers;
 
 import com.melo.pizza.persistance.dto.UpdatePizzaPriceDTO;
 import com.melo.pizza.persistance.entity.PizzaEntity;
