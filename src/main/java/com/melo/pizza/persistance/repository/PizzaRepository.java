@@ -1,6 +1,6 @@
 package com.melo.pizza.persistance.repository;
 
-import com.melo.pizza.persistance.dto.UpdatePizzaPriceDTO;
+import com.melo.pizza.service.dto.UpdatePizzaPriceDTO;
 import com.melo.pizza.persistance.entity.PizzaEntity;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

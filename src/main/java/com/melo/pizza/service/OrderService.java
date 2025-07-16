@@ -1,11 +1,12 @@
 package com.melo.pizza.service;
 
-import com.melo.pizza.persistance.dto.RandomOrderDto;
+import com.melo.pizza.service.dto.RandomOrderDto;
 import com.melo.pizza.persistance.entity.OrderEntity;
 import com.melo.pizza.persistance.projection.OrderSummary;
 import com.melo.pizza.persistance.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -43,6 +44,7 @@ public class OrderService {
         return this.orderRepository.findAllByMethodIn(methods);
     }
 
+    @Secured("ROLE_ADMIN")
     public List<OrderEntity> getCustomerOrders (String idCustomer){
         List<OrderEntity> orders = orderRepository.findCustomerOrders(idCustomer);
         if (orders.isEmpty()) {

@@ -1,6 +1,6 @@
 package com.melo.pizza.web.controllers;
 
-import com.melo.pizza.persistance.dto.UpdatePizzaPriceDTO;
+import com.melo.pizza.service.dto.UpdatePizzaPriceDTO;
 import com.melo.pizza.persistance.entity.PizzaEntity;
 import com.melo.pizza.service.PizzaService;
 import lombok.extern.slf4j.Slf4j;

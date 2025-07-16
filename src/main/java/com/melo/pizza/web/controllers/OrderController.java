@@ -1,6 +1,6 @@
 package com.melo.pizza.web.controllers;
 
-import com.melo.pizza.persistance.dto.RandomOrderDto;
+import com.melo.pizza.service.dto.RandomOrderDto;
 import com.melo.pizza.persistance.entity.OrderEntity;
 import com.melo.pizza.persistance.projection.OrderSummary;
 import com.melo.pizza.service.OrderService;

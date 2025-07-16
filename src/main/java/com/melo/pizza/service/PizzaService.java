@@ -1,6 +1,6 @@
 package com.melo.pizza.service;
 
-import com.melo.pizza.persistance.dto.UpdatePizzaPriceDTO;
+import com.melo.pizza.service.dto.UpdatePizzaPriceDTO;
 import com.melo.pizza.persistance.entity.PizzaEntity;
 import com.melo.pizza.persistance.repository.PizzaPagSortRepository;
 import com.melo.pizza.persistance.repository.PizzaRepository;
